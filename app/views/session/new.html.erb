@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
+    <ul class="nav nav-pills login-options">
+      <li class="active">
+        <a id="login-pill" href="#">Sign in</a>
+      </li>
+      <li>
+        <a id="register-pill" href="#">Register</a>
+      </li>
+      <li>
+        <a id="reset-pill" href="#">Reset Password</a>
+      </li>
+    </ul>
+    <%= form_for :user, url: login_url, html: { role: "form", id: "loginform" } do |f| %>
+      <div class="row">
+        <div class="col-lg-8">
+          <fieldset>
+            <legend>Please sign in</legend>
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address", autofocus: true, required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password, id: 'password-label' %>
+              <%= f.password_field :password, class: "form-control showable-password", placeholder: "Enter your password", required: true %>
+            </div>
+            <div class="form-group">
+              <%= f.submit "Sign in", class: "btn btn-success", id: 'submit-button' %>
+              <button id="show-password-button" class="btn btn-warning" data-state="show">Show Password</button>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_include_tag "login" %>
+<%= javascript_include_tag "password" %>

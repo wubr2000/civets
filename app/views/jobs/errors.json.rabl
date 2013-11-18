@@ -1,0 +1,3 @@
+object @job
+
+attributes :errors

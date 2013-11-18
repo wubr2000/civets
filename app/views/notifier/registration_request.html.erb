@@ -1,0 +1,15 @@
+<p>
+  Thank you for registering with Civet! To complete
+  your registration, please follow the link below:
+</p>
+
+<p>
+  <%= link_to register_url(@registrant.code), register_url(@registrant.code) %>
+</p>
+
+<p>
+  If you received this email in error, simply do nothing.
+  The above link will expire at <%= @registrant.expires_at.strftime("%-I:%M on %a, %-d %b %Y") %>
+</p>
+
+<p>Thanks!<br>Civet</p>

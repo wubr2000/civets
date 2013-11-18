@@ -1,0 +1,169 @@
+/*
+ *= require bootstrap
+ *= require bootstrap-theme
+ *= require_self
+ */
+
+/* Danger (pale red) */
+$bgnd-danger:          hsla(2, 64.4860%, 58.0392%, 1);
+$border-danger:        hsla(2, 64.1667%, 52.9412%, 1);
+$bgnd-danger-hover:    hsla(2, 64.7059%, 50%,      1);
+$border-danger-hover:  hsla(2, 64.5933%, 40.9804%, 1);
+$text-danger:          hsla(1, 44.6640%, 50.3922%, 1);
+
+/* Warning (pale orange) */
+$bgnd-warning:         hsla(35, 84.3750%, 62.3529%, 1);
+$border-warning:       hsla(35, 84.4037%, 57.2549%, 1);
+$bgnd-warning-hover:   hsla(35, 84.5494%, 54.3137%, 1);
+$border-warning-hover: hsla(35, 84.4156%, 45.2941%, 1);
+$text-warning:         hsla(38, 46.3830%, 53.9216%, 1);
+
+/* Success (pale green) */
+$bgnd-success:         hsla(120, 39.3162%, 54.1176%, 1);
+$border-success:       hsla(120, 39.2000%, 49.0196%, 1);
+$bgnd-success-hover:   hsla(120, 39.5745%, 46.0784%, 1);
+$border-success-hover: hsla(120, 39.6825%, 37.0588%, 1);
+$text-success:         hsla(121, 32.0388%, 40.3922%, 1);
+
+/* Info (cyanish) */
+$bgnd-info:            hsla(194, 66.4975%, 61.3725%, 1);
+$border-info:          hsla(194, 66.6667%, 56.4706%, 1);
+$bgnd-info-hover:      hsla(194, 66.3866%, 53.3333%, 1);
+$border-info-hover:    hsla(194, 66.3717%, 44.3137%, 1);
+$text-info:            hsla(200, 49.7835%, 45.2941%, 1);
+
+/* Primary (blue) */
+$bgnd-primary:         hsla(208, 56.1983%, 52.5490%, 1);
+$border-primary:       hsla(208, 56.1983%, 47.4510%, 1);
+$bgnd-primary-hover:   hsla(208, 55.9471%, 44.5098%, 1);
+$border-primary-hover: hsla(208, 56.0440%, 35.6863%, 1);
+$text-primary:         hsla(208, 56.1983%, 52.5490%, 1);
+
+/* Default (gray and white) */
+$bgnd-default:         hsla(0, 0%, 100%,     1);
+$border-default:       hsla(0, 0%, 80%,      1);
+$bgnd-default-hover:   hsla(0, 0%, 92.1569%, 1);
+$border-default-hover: hsla(0, 0%, 67.8431%, 1);
+$text-default:         hsla(0, 0%, 32.5490%, 1);     /* dark gray        */
+$text-muted:           hsla(0, 0%, 60%,      1);     /* medium gray      */
+$text-nav-link:        hsla(0, 0%, 46.6667%, 1);     /* medium dark gray */
+$border-shadow:        hsla(0, 0%, 90.5882%, 1);     /* light gray       */
+$bgnd-head-foot:       hsla(0, 0%, 97.2549%, 1);     /* very light gray  */
+
+$height-header: 50px;
+$height-footer: 40px;
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  color: $text-default;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto;
+  margin-bottom: $height-footer * -1;
+  /* Pad bottom by footer height */
+  padding: 0 0 $height-footer;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: $height-footer;
+  background-color: $bgnd-head-foot;
+  border-top: 1px solid $border-shadow;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+#wrap > .container {
+  padding: 70px 15px 0;
+}
+
+h1 {
+  font-size: 160%;
+  text-align: left;
+  line-height: 200%;
+  border-bottom: 1px solid $border-default;
+}
+
+h2, caption, legend, section header h1 {
+  text-align: left;
+  font-size: 130%;
+  line-height: 1.5;
+  color: $bgnd-success;
+  border-bottom: 1px solid $bgnd-success;
+}
+
+section section header h1 {
+  font-size: 100%;
+  color: $text-muted;
+  border-bottom: none;
+}
+
+.navbar-nav > li > a {
+  text-transform: lowercase;
+}
+
+.navbar-brand.logo {
+  font-size: 150%;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  color: $bgnd-success;
+}
+
+.tagline {
+  line-height: 20px;
+  padding: 15px;
+  color: $text-muted;
+  text-shadow: rgba(255, 255, 255, 0.247059) 0px 1px 0px;
+}
+
+#loginform, #registration-form {
+  margin-top: 40px;
+}
+
+#registrant-email {
+  font-size: 1.4em;
+  margin-top: 25px;
+  color: $bgnd-success;
+}
+
+#pw-quality {
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+.reset-form #pw-quality {
+  margin-top: 0;
+}
+
+.crack-div {
+  font-size: 1.2em;
+  margin-top: -10px;
+}
+
+#match-div {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: red;
+}
+
+#match-div.pmatch {
+  font-weight: bold;
+  color: $bgnd-success;
+}
+
+.container .credit {
+  text-align: right;
+  margin: 10px 0;
+}

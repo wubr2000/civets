@@ -1,0 +1,44 @@
+<div id="registration-form row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <%= form_for @user, url: register_url, html: { role: "form" } do |f| %>
+      <legend>Please complete your registration</legend>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control showable-password", placeholder: "Password" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: "form-control showable-password", placeholder: "Type it again" %>
+          </div>
+          <div class="form-group">
+            <input id="hidden-strength" type="hidden" name="strength" value="0">
+            <%= f.submit "Register", class: "btn btn-success" %>
+            <button id="show-password-button" class="btn btn-warning" data-state="show">Show Passwords</button>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <p id="registrant-email"><%= @registrant.email %></p>
+          <p id="pw-quality">Password too weak!</p>
+          <div id="pw-meter" class="strength-meter progress progress-striped">
+            <div id="strength-meter" class="meter progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"></div>
+          </div>
+          <div class="crack-div">
+            <strong>Time to crack:</strong> &nbsp;
+            <span id="time-to-crack">instant</span>
+          </div>
+          <div id="match-div"></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script src="/js/zxcvbn-async.js"></script>
+<%= javascript_include_tag "password" %>
+<%= javascript_include_tag "strength" %>

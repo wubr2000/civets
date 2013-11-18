@@ -1,0 +1,42 @@
+<main id="cv-main">
+  <header>
+    <h1><%= @vitae.user.name %></h1>
+  </header>
+  
+  <% unless @vitae.objective.blank? %>
+    <section id="objective-section">
+      <header>
+        <h1>Objective</h1>
+        <p><%= @vitae.objective %></p>
+      </header>
+    </section>
+  <% end %>
+  
+  <% unless @vitae.schools.empty? %>
+    <section id="schools-section">
+      <header>
+        <h1>Education</h1>
+      </header>
+      <% @vitae.schools.each do |school| %>
+        <section id="school-<%= school.id %>">
+          <header>
+            <h1><%= school.name %></h1>
+        </section>
+      <% end %>
+    </section>
+  <% end %>
+  
+  <% unless @vitae.jobs.empty? %>
+    <section id="schools-section">
+      <header>
+        <h1>Work Experience</h1>
+      </header>
+      <% @vitae.jobs.each do |job| %>
+        <section id="job-<%= job.id %>">
+          <header>
+            <h1><%= job.company %></h1>
+        </section>
+      <% end %>
+    </section>
+  <% end %>
+</main>

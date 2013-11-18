@@ -1,4 +1,4 @@
-civets
-======
+civet
+=====
 
-Authentication app
+AR/Rails/Handlebars CV application for demo purposes

@@ -1,0 +1,184 @@
+DEPRECATION WARNING: You didn't set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from env_config at /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/application.rb:141)
+DEPRECATION WARNING: You didn't set config.secret_key_base. Read the upgrade documentation to learn more about this new config option. (called from env_config at /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.0/lib/rails/application.rb:141)
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-18 12:08:58 +0800
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__757589756576964655__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  puma (2.6.0) lib/puma/server.rb:486:in `handle_request'
+  puma (2.6.0) lib/puma/server.rb:357:in `process_client'
+  puma (2.6.0) lib/puma/server.rb:250:in `block in run'
+  puma (2.6.0) lib/puma/thread_pool.rb:92:in `call'
+  puma (2.6.0) lib/puma/thread_pool.rb:92:in `block in spawn_thread'
+
+
+  Rendered /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (30.3ms)
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20131115082512)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "salt" varchar(255), "fish" varchar(255), "code" varchar(255), "expires_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131115082512"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateVitaes (20131115082616)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "vitaes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "objective" varchar(255), "code" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_vitaes_on_user_id" ON "vitaes" ("user_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131115082616"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to CreateJobs (20131115082722)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "company" varchar(255), "location" varchar(255), "title" varchar(255), "hired_on" date, "left_on" date, "responsibilities" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_jobs_on_user_id" ON "jobs" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "jobs_vitaes" ("job_id" integer, "vitae_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131115082722"]]
+  [1m[35m (1.8ms)[0m  commit transaction
+Migrating to CreateSchools (20131115082815)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schools" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "location" varchar(255), "major" varchar(255), "enrolled_on" date, "left_on" date, "did_graduate" boolean, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_schools_on_user_id" ON "schools" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "schools_vitaes" ("school_id" integer, "vitae_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131115082815"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateRefs (20131115082915)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "refs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "title" varchar(255), "email" varchar(255), "phone" varchar(255), "relationship" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_refs_on_user_id" ON "refs" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "refs_vitaes" ("ref_id" integer, "vitae_id" integer) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131115082915"]]
+  [1m[35m (3.0ms)[0m  commit transaction
+Migrating to CreateRegistrants (20131115133347)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "registrants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255), "code" varchar(255), "expires_at" datetime, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20131115133347"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-11-18 12:09:28 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SiteController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Redirected to http://localhost:3000/login
+Filter chain halted as :is_authenticated? rendered or redirected
+Completed 302 Found in 760ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2013-11-18 12:09:29 +0800
+Processing by SessionController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  Rendered session/new.html.erb within layouts/application (902.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 1880ms (Views: 1877.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/vendor/bootstrap.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/vendor/themes/default.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/vendor/handlebars.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/vendor/numeral.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/vendor/moment.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/vendor/layouts/bottom.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/bootstrap-theme.css?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/vendor/jquery.noty.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/vendor/layouts/bottomRight.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:31 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:32 +0800
+
+
+Started GET "/assets/password.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:32 +0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2013-11-18 12:09:32 +0800
+
+
+Started GET "/favicon.png" for 127.0.0.1 at 2013-11-18 12:09:32 +0800
+
+ActionController::RoutingError (No route matches [GET] "/favicon.png"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  puma (2.6.0) lib/puma/server.rb:486:in `handle_request'
+  puma (2.6.0) lib/puma/server.rb:357:in `process_client'
+  puma (2.6.0) lib/puma/server.rb:250:in `block in run'
+  puma (2.6.0) lib/puma/thread_pool.rb:92:in `call'
+  puma (2.6.0) lib/puma/thread_pool.rb:92:in `block in spawn_thread'
+
+
+  Rendered /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.1ms)
+  Rendered /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /Users/wubr2000/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (73.3ms)
